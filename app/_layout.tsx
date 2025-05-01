@@ -1,39 +1,67 @@
-import { DarkTheme, DefaultTheme, ThemeProvider } from '@react-navigation/native';
-import { useFonts } from 'expo-font';
-import { Stack } from 'expo-router';
-import * as SplashScreen from 'expo-splash-screen';
-import { StatusBar } from 'expo-status-bar';
-import { useEffect } from 'react';
-import 'react-native-reanimated';
-
-import { useColorScheme } from '@/hooks/useColorScheme';
-
-// Prevent the splash screen from auto-hiding before asset loading is complete.
-SplashScreen.preventAutoHideAsync();
+import { Tabs } from "expo-router";
+import { Image } from "react-native";
+import { StyleSheet } from "react-native";
+import * as React from 'react';
+import {NavigationContainer} from '@react-navigation/native';
+import {createNativeStackNavigator} from '@react-navigation/native-stack';
+import Quests from "./QuestLog";
+import home from "./home";
+import AvatarStats from "./AvatarStats";
+import dailyQuests from "./dailyQuests";
+import storyQuests from "./storyQuests";
 
 export default function RootLayout() {
-  const colorScheme = useColorScheme();
-  const [loaded] = useFonts({
-    SpaceMono: require('../assets/fonts/SpaceMono-Regular.ttf'),
-  });
+  return <Tabs>
+    <Tabs.Screen 
+      name="home" 
+      options={{headerShown: false, title: "Home", tabBarShowLabel: false, 
+      tabBarIcon: ({})=>( <Image source={require('@/assets/images/homelogo.png')} 
+      style={{width: 35, height: 35}} />), tabBarStyle: Style.tabBarStyle}} />
+    <Tabs.Screen 
+      name="QuestLog" 
+      options={{headerShown: false, title: "Quests", tabBarShowLabel: false, 
+      tabBarIcon: ({})=>( <Image source={require('@/assets/images/questlogo.png')} 
+      style={{width: 35, height: 35}} />), tabBarStyle: Style.tabBarStyle}} />
+    <Tabs.Screen 
+      name="AvatarStats" 
+      options={{headerShown: false, title: "Avatar", tabBarShowLabel: false, 
+      tabBarIcon: ({})=>(<Image source={require('@/assets/images/statslogo.png')} 
+      style={{width: 35, height: 35}} />), tabBarStyle: Style.tabBarStyle}} />
+    <Tabs.Screen 
+      name="EditAvatar" 
+      options={{headerShown: false, title: "Edit", tabBarShowLabel: false, 
+      tabBarIcon: ({})=>( <Image source={require('@/assets/images/editlogo.png')}  
+      style={{width: 35, height: 35}} />), tabBarStyle: Style.tabBarStyle}} />
+    <Tabs.Screen 
+      name="settings" 
+      options={{headerShown: false, title: "Settings", tabBarShowLabel: false, 
+      tabBarIcon: ({})=>( <Image source={require('@/assets/images/logoutlogo.png')} 
+      style={{width: 35, height: 35}} />), tabBarStyle: Style.tabBarStyle}} />
+  </Tabs>
+}
 
-  useEffect(() => {
-    if (loaded) {
-      SplashScreen.hideAsync();
-    }
-  }, [loaded]);
+const Stack = createNativeStackNavigator ();
 
-  if (!loaded) {
-    return null;
-  }
-
+export function App() {
   return (
-    <ThemeProvider value={colorScheme === 'dark' ? DarkTheme : DefaultTheme}>
-      <Stack>
-        <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
-        <Stack.Screen name="+not-found" />
-      </Stack>
-      <StatusBar style="auto" />
-    </ThemeProvider>
+    <NavigationContainer>
+    <Stack.Navigator initialRouteName="Home">
+      <Stack.Screen name="Home" component={RootLayout} />
+      <Stack.Screen name="Daily Quests" component={dailyQuests} />
+      <Stack.Screen name="Story Quests" component={storyQuests} />  
+    </Stack.Navigator>
+    </NavigationContainer>
   );
 }
+
+const Style = StyleSheet.create ({
+  tabBarStyle: {
+    height: 80,
+    width: 1000,
+    backgroundColor: '#efe6d5',
+    borderRadius: 25,
+    alignContent: 'center',
+    alignSelf: 'center',
+    marginBottom: 25,
+  }
+});
