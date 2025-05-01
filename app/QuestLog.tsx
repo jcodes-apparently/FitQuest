@@ -1,15 +1,11 @@
 import React from "react";
 import { Text, StyleSheet, TouchableOpacity } from "react-native";
 import { SafeAreaProvider, SafeAreaView } from "react-native-safe-area-context";
-import { useNavigation } from "expo-router";
-import { navigate } from "expo-router/build/global-state/routing";
+import { useRouter } from "expo-router";
+import dailyQuests from "./dailyQuests";
+import storyQuests from "./storyQuests";
 
-const navigation = useNavigation;
-
-// render (); {
-//     const { navigate } = this.props.navigation;
-
-//     }
+const router = useRouter();
 
 export default function Quests() {
   return (
@@ -21,16 +17,32 @@ export default function Quests() {
       <SafeAreaView style={styles.container}>
         <TouchableOpacity
           style={styles.daily}
-          onPress={() => navigate("Daily Quests")}
+          onPress={() => router.push("/dailyQuests")}
         >
-          <Text style={styles.go}>Go to</Text>
-          <Text style={styles.title}>daily quests</Text>
+          <Text style={styles.go}>
+            Go to
+          </Text>
+          <Text style={styles.title}>
+            daily quests
+          </Text>
+          <Text style={styles.subtitle}>
+            check your quests for today and see what you have left to do!
+          </Text>
         </TouchableOpacity>
       </SafeAreaView>
       <SafeAreaView style={styles.container}>
-        <TouchableOpacity style={styles.story}>
-          <Text style={styles.go}>Go to</Text>
-          <Text style={styles.title}>story quests</Text>
+        <TouchableOpacity style={styles.story} 
+          onPress={() => router.push("/storyQuests")}
+        >
+          <Text style={styles.go}>
+            Go to
+          </Text>
+          <Text style={styles.title}>
+            story quests
+          </Text>
+          <Text style={styles.subtitle}>
+            check your progress in your current story quest and see what other quests you can complete next!
+          </Text>
         </TouchableOpacity>
       </SafeAreaView>
     </SafeAreaProvider>
@@ -67,6 +79,7 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     marginLeft: 10,
     marginTop: 5,
+    color: '#4d4d4d',
   },
   story: {
     flex: 1,
@@ -94,4 +107,10 @@ const styles = StyleSheet.create({
     fontSize: 40,
     fontWeight: "bold",
   },
+  subtitle: {
+    color: '#4d4d4d',
+    alignSelf: 'flex-start',
+    marginTop: 50,
+    marginLeft: 25,
+  }
 });

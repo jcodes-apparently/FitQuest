@@ -5,15 +5,7 @@ import {
   TouchableOpacity,
   View,
 } from "react-native";
-import { SafeAreaProvider, SafeAreaView } from "react-native-safe-area-context";
 import { StyleSheet } from "react-native";
-import {
-  NavigationAction,
-  NavigationContainer,
-  NavigationIndependentTree,
-} from "@react-navigation/native";
-import { navigate } from "expo-router/build/global-state/routing";
-import onboarding from "./onboarding";
 import { useRouter } from "expo-router";
 
 export default function index() {

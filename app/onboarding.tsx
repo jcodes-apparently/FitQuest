@@ -1,10 +1,12 @@
 import { ImageBackground, Text, TextInput, TouchableOpacity, View } from "react-native";
 import { SafeAreaProvider, SafeAreaView } from "react-native-safe-area-context";
 import { StyleSheet } from "react-native";
-import { NavigationContainer, NavigationIndependentTree } from "@react-navigation/native";
+import { useRouter } from "expo-router";
+import home from "@/app/home";
 
+const router = useRouter();
 
-export default function onboarding ({navigation, route}) {
+export default function onboarding () {
   return (
     <SafeAreaProvider>
       <SafeAreaView style={styles.container}>
@@ -22,6 +24,10 @@ export default function onboarding ({navigation, route}) {
         keyboardType='default'
         />
         </View>
+        <TouchableOpacity
+        onPress={() => router.push("../home")}>
+          log in
+        </TouchableOpacity>
       </SafeAreaView>
     </SafeAreaProvider>
   );

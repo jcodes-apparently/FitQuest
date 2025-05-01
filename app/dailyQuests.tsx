@@ -1,9 +1,12 @@
 import React from "react";
-import { ScrollView, Text, View } from "react-native";
+import { ScrollView, Text, TouchableOpacity, View } from "react-native";
 import DailyTask from "@/components/Task";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { StyleSheet } from "react-native";
+import { useRouter } from "expo-router";
+import Quests from "./QuestLog";
 
+const router = useRouter();
 
 export default function dailyQuests () {
     return (
@@ -26,6 +29,11 @@ export default function dailyQuests () {
             <DailyTask text={'Task 5'}/>
             <DailyTask text={'Task 6'}/>
             <DailyTask text={'Task 7'}/>
+        <TouchableOpacity
+         onPress={() => router.push("/QuestLog")}
+        >
+            back to quest log
+        </TouchableOpacity>
         </ScrollView>
     )
 }

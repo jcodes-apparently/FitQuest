@@ -15,28 +15,28 @@ export default function RootLayout() {
     <Tabs.Screen 
       name="home" 
       options={{headerShown: false, title: "Home", tabBarShowLabel: false, 
-      tabBarIcon: ({})=>( <Image source={require('@/assets/images/homelogo.png')} 
-      style={{width: 35, height: 35}} />), tabBarStyle: Style.tabBarStyle}} />
+      tabBarIcon: ({})=>( <Image source={require('@/assets/images/homelogo.png')}  
+      style={{width: 35, height: 35, marginTop: 35}} />), tabBarStyle: Style.tabBarStyle}} />
     <Tabs.Screen 
       name="QuestLog" 
       options={{headerShown: false, title: "Quests", tabBarShowLabel: false, 
       tabBarIcon: ({})=>( <Image source={require('@/assets/images/questlogo.png')} 
-      style={{width: 35, height: 35}} />), tabBarStyle: Style.tabBarStyle}} />
+      style={{width: 35, height: 35, marginTop: 35}} />), tabBarStyle: Style.tabBarStyle}} />
     <Tabs.Screen 
       name="AvatarStats" 
       options={{headerShown: false, title: "Avatar", tabBarShowLabel: false, 
       tabBarIcon: ({})=>(<Image source={require('@/assets/images/statslogo.png')} 
-      style={{width: 35, height: 35}} />), tabBarStyle: Style.tabBarStyle}} />
+      style={{width: 35, height: 35, marginTop: 35}} />), tabBarStyle: Style.tabBarStyle}} />
     <Tabs.Screen 
       name="EditAvatar" 
       options={{headerShown: false, title: "Edit", tabBarShowLabel: false, 
       tabBarIcon: ({})=>( <Image source={require('@/assets/images/editlogo.png')}  
-      style={{width: 35, height: 35}} />), tabBarStyle: Style.tabBarStyle}} />
+      style={{width: 35, height: 35, marginTop: 35}} />), tabBarStyle: Style.tabBarStyle}} />
     <Tabs.Screen 
       name="settings" 
       options={{headerShown: false, title: "Settings", tabBarShowLabel: false, 
       tabBarIcon: ({})=>( <Image source={require('@/assets/images/logoutlogo.png')} 
-      style={{width: 35, height: 35}} />), tabBarStyle: Style.tabBarStyle}} />
+      style={{width: 35, height: 35, marginTop: 35}} />), tabBarStyle: Style.tabBarStyle}} />
   </Tabs>
 }
 
@@ -57,7 +57,7 @@ export function App() {
 const Style = StyleSheet.create ({
   tabBarStyle: {
     height: 80,
-    width: 1000,
+    width: 250,
     backgroundColor: '#efe6d5',
     borderRadius: 25,
     alignContent: 'center',
