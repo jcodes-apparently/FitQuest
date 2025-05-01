@@ -1,19 +1,9 @@
-import { Stack, Tabs } from "expo-router";
+import { Tabs } from "expo-router";
 import { Image } from "react-native";
 import { StyleSheet } from "react-native";
 import * as React from "react";
-
-const Style = StyleSheet.create({
-  tabBarStyle: {
-    height: 80,
-    width: 250,
-    backgroundColor: "#efe6d5",
-    borderRadius: 25,
-    alignContent: "center",
-    alignSelf: "center",
-    marginBottom: 25,
-  },
-});
+import { NavigationContainer } from "@react-navigation/native";
+import { createNativeStackNavigator } from "@react-navigation/native-stack";
 
 export default function RootLayout() {
   return (
@@ -93,18 +83,30 @@ export default function RootLayout() {
           tabBarStyle: Style.tabBarStyle,
         }}
       />
-      <Tabs.Screen
-        name="index"
-        options={{
-          href: null,
-        }}
-      />
-      <Tabs.Screen
-        name="(tabs)"
-        options={{
-          href: null,
-        }}
-      />
     </Tabs>
   );
 }
+
+const Stack = createNativeStackNavigator();
+
+export function App() {
+  return (
+    <NavigationContainer>
+      <Stack.Navigator initialRouteName="Home">
+        <Stack.Screen name="Home" component={RootLayout} />
+      </Stack.Navigator>
+    </NavigationContainer>
+  );
+}
+
+const Style = StyleSheet.create({
+  tabBarStyle: {
+    height: 80,
+    width: 250,
+    backgroundColor: "#efe6d5",
+    borderRadius: 25,
+    alignContent: "center",
+    alignSelf: "center",
+    marginBottom: 25,
+  },
+});
