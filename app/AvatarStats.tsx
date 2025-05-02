@@ -20,12 +20,16 @@ export default function AvatarStats() {
             <SafeAreaView style={styles.avatarBG}>
             </SafeAreaView>
         </SafeAreaView>
+        <SafeAreaView style={styles.statsContainer}>
         <SafeAreaView style={styles.barContainer}>
             <HealthBar />
+        </SafeAreaView>
+        <SafeAreaView style={styles.barContainer}>
             <StatsBar />
         </SafeAreaView>
         <SafeAreaView>
             
+        </SafeAreaView>
         </SafeAreaView>
         </SafeAreaProvider>
     );
@@ -63,9 +67,12 @@ const styles = StyleSheet.create({
         backgroundColor: '#ffffff',
     },
     barContainer: {
-        flex: 0.6,
-        marginLeft: 50,
-        marginRight: 50,
+        marginLeft: 60,
+        marginRight: 55,
         backgroundColor: '#ffffff',
     },
+    statsContainer: {
+        flex: 0.5,
+        backgroundColor: '#ffffff',
+    }
 })

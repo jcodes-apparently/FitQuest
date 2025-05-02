@@ -109,8 +109,9 @@ const styles = StyleSheet.create({
   },
   subtitle: {
     color: '#4d4d4d',
-    alignSelf: 'flex-start',
-    marginTop: 50,
-    marginLeft: 25,
+    alignSelf: 'baseline',
+    marginTop: 10,
+    marginLeft: 10,
+    fontSize: 10,
   }
 });
