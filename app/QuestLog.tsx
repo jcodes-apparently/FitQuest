@@ -2,8 +2,8 @@ import React from "react";
 import { Text, StyleSheet, TouchableOpacity } from "react-native";
 import { SafeAreaProvider, SafeAreaView } from "react-native-safe-area-context";
 import { useRouter } from "expo-router";
-import dailyQuests from "./dailyQuests";
-import storyQuests from "./storyQuests";
+import dailyQuests from "./(tabs)/dailyQuests";
+import storyQuests from "./(tabs)/storyQuests";
 
 const router = useRouter();
 
@@ -19,29 +19,23 @@ export default function Quests() {
           style={styles.daily}
           onPress={() => router.push("/dailyQuests")}
         >
-          <Text style={styles.go}>
-            Go to
-          </Text>
-          <Text style={styles.title}>
-            daily quests
-          </Text>
+          <Text style={styles.go}>Go to</Text>
+          <Text style={styles.title}>daily quests</Text>
           <Text style={styles.subtitle}>
             check your quests for today and see what you have left to do!
           </Text>
         </TouchableOpacity>
       </SafeAreaView>
       <SafeAreaView style={styles.container}>
-        <TouchableOpacity style={styles.story} 
+        <TouchableOpacity
+          style={styles.story}
           onPress={() => router.push("/storyQuests")}
         >
-          <Text style={styles.go}>
-            Go to
-          </Text>
-          <Text style={styles.title}>
-            story quests
-          </Text>
+          <Text style={styles.go}>Go to</Text>
+          <Text style={styles.title}>story quests</Text>
           <Text style={styles.subtitle}>
-            check your progress in your current story quest and see what other quests you can complete next!
+            check your progress in your current story quest and see what other
+            quests you can complete next!
           </Text>
         </TouchableOpacity>
       </SafeAreaView>
@@ -79,7 +73,7 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     marginLeft: 10,
     marginTop: 5,
-    color: '#4d4d4d',
+    color: "#4d4d4d",
   },
   story: {
     flex: 1,
